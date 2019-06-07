@@ -1,0 +1,39 @@
+{
+  "description": "Remove Sponsored Cards from Facebook's News Feed",
+  "homepage_url": "http://markusjaritz.com/",
+  "manifest_version": 2,
+  "name": "No Sponsor",
+  "permissions": [
+    "find",
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "32": "find.svg"
+  },
+  "content_scripts": [
+        {
+            "matches":[
+                "https://*.facebook.com/*"
+            ],
+            "js": [
+                "redact.js"
+            ]
+        }
+    ],
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "No Sponsor",
+    "default_icon": {
+        "32": "find.svg"
+    }
+  },
+  "version": "0.1",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "57.0a1"
+    }
+  }
+}
